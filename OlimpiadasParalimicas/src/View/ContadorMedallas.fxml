@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.MotionBlur?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.IniciarSesionController">
+   <children>
+      <ToolBar prefHeight="100.0" prefWidth="1280.0">
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow>
+                     <input>
+                        <MotionBlur />
+                     </input>
+                  </Shadow>
+               </bumpInput>
+               <light>
+                  <Light.Distant>
+                     <color>
+                        <Color red="1.0" green="0.39814814925193787" blue="0.39814814925193787" />
+                     </color>
+                  </Light.Distant>
+               </light>
+            </Lighting>
+         </effect>
+      </ToolBar>
+      <Label alignment="CENTER" prefHeight="100.0" prefWidth="1280.0" style="-fx-border-color: transparent;" text="Olimpiadas Paralimpicas 2024" textFill="WHITE">
+         <font>
+            <Font size="45.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="NONE" />
+         </cursor>
+         <effect>
+            <ColorAdjust brightness="1.0" contrast="1.0" hue="1.0" saturation="-1.0" />
+         </effect>
+      </Label>
+      <ToolBar layoutX="1.0" layoutY="100.0" prefHeight="51.0" prefWidth="1280.0" style="-fx-border-color: transparent;">
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+         <effect>
+            <Lighting diffuseConstant="2.0" specularConstant="2.0" specularExponent="40.0" surfaceScale="10.0">
+               <bumpInput>
+                  <Lighting bumpInput="$null">
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </bumpInput>
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect>
+         <items>
+            <Label prefHeight="17.0" prefWidth="218.0" />
+            <Button fx:id="btn_Calendario_Resultados" mnemonicParsing="false" onAction="#VentanaCalendarioResultados" prefHeight="41.0" prefWidth="224.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="Calendario y Resultados">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn_Ventana_Medallas" mnemonicParsing="false" onAction="#VentanaMedallas" prefHeight="39.0" prefWidth="102.0" style="-fx-background-color: transparent;" text="Medallas">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn_Ventana_Competencias" mnemonicParsing="false" onAction="#VentanaCompetencias" prefHeight="39.0" prefWidth="144.0" style="-fx-background-color: transparent;" text="Competencias">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn_Ventana_Atletas" cache="true" depthTest="ENABLE" mnemonicParsing="false" onAction="#VentanaAtletas" prefHeight="39.0" prefWidth="102.0" style="-fx-background-color: transparent;" text="Atletas">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn_Ventana_Paises" cache="true" depthTest="ENABLE" mnemonicParsing="false" onAction="#VentanaPaises" prefHeight="39.0" prefWidth="102.0" style="-fx-background-color: transparent;" text="Paises">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </items>
+      </ToolBar>
+      <ImageView fitHeight="148.0" fitWidth="202.0" layoutX="31.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagenes/Logo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="18.0" layoutY="170.0" text="Contador de Medallas Olimpicas">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <TextField fx:id="Buscardor_ventana_contadorMedallas" layoutX="473.0" layoutY="231.0" prefHeight="39.0" prefWidth="174.0" />
+      <ComboBox fx:id="comboBox_All_Sports" layoutX="25.0" layoutY="231.0" prefHeight="39.0" prefWidth="174.0" promptText="Todos los deportes" style="-fx-background-color: transparent; -fx-border-color: grey;" />
+      <ComboBox layoutX="249.0" layoutY="231.0" prefHeight="39.0" prefWidth="174.0" promptText="Medallistas" style="-fx-background-color: transparent; -fx-border-color: grey;" />
+      <GridPane fx:id="gridPane_ContadorDeMedallas" layoutX="25.0" layoutY="328.0" prefHeight="370.0" prefWidth="1231.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="387.0" minWidth="0.0" prefWidth="152.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="773.0" minWidth="10.0" prefWidth="587.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="616.0" minWidth="10.0" prefWidth="129.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="309.0" minWidth="10.0" prefWidth="125.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="309.0" minWidth="10.0" prefWidth="122.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="246.0" minWidth="10.0" prefWidth="134.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+      </GridPane>
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+      <ToolBar layoutX="25.0" layoutY="289.0" prefHeight="40.0" prefWidth="1231.0">
+         <items>
+            <Label text="Ranking">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label text="               ">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label text="Equipo/Pais">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label prefHeight="27.0" prefWidth="477.0" text="               ">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="30.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/medalla.png" />
+               </image>
+            </ImageView>
+            <Label text="1">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label text="               ">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="29.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/medalla.png" />
+               </image>
+            </ImageView>
+            <Label text="2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label text="               ">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="30.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/medalla.png" />
+               </image>
+            </ImageView>
+            <Label text="3">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label text="               ">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label text="Total">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </items>
+         <effect>
+            <Lighting diffuseConstant="2.0">
+               <bumpInput>
+                  <Lighting bumpInput="$null">
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </bumpInput>
+               <light>
+                  <Light.Distant>
+                     <color>
+                        <Color red="0.9605262875556946" green="0.26681286096572876" blue="0.26681286096572876" />
+                     </color>
+                  </Light.Distant>
+               </light>
+            </Lighting>
+         </effect>
+      </ToolBar>
+   </children>
+</Pane>
